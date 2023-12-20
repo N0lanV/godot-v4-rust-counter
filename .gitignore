@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+/.idea
+/godot/.godot
+demo-godot.iml
