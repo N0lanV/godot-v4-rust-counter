@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://0u7okxbf4o6"]
+
+[ext_resource type="Script" path="res://CounterLabel.gd" id="1_1gbol"]
+[ext_resource type="Script" path="res://IncrementCounterButton.gd" id="2_vl4lb"]
+[ext_resource type="Script" path="res://DecrementCounterButton.gd" id="3_35dps"]
+[ext_resource type="Script" path="res://IncrementAsyncCounterButton.gd" id="4_kexae"]
+[ext_resource type="Script" path="res://Store.gd" id="5_jrgih"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="CounterLabel" type="Label" parent="CanvasLayer/CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_1gbol")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="IncrementCounterButton" type="Button" parent="CanvasLayer/CenterContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "+1"
+script = ExtResource("2_vl4lb")
+
+[node name="DecrementCounterButton" type="Button" parent="CanvasLayer/CenterContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "-1"
+script = ExtResource("3_35dps")
+
+[node name="IncrementAsyncCounterButton" type="Button" parent="CanvasLayer/CenterContainer/GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "+1 *1000"
+script = ExtResource("4_kexae")
+
+[node name="Store" type="Node" parent="."]
+script = ExtResource("5_jrgih")
